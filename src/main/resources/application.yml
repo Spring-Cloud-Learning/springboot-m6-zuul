@@ -1,0 +1,23 @@
+zuul:
+  prefix: /api
+  routes:
+    book-server:
+      path: /server/**
+      service-id: BOOK-SERVICE
+    book-client:
+      path: /client/**
+      url: http://localhost:8072/client/
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: zuul-gateway
+
+server:
+  port: 8070
+  
